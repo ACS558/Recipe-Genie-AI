@@ -36,13 +36,11 @@ export default function Main() {
     setRecipe(recipeMarkdown);
     showToast("Recipe generated successfully!", "success");
   }
-
   function addIngredient(formData) {
     const newIngredient = formData.get("ingredient")?.trim();
     if (!newIngredient) return; // ignore empty input
 
     setIngredients((prevIngredients) => {
-      // Check for duplicates (case-insensitive)
       if (
         prevIngredients.some(
           (item) => item.toLowerCase() === newIngredient.toLowerCase()
